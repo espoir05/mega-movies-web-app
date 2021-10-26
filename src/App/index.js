@@ -1,6 +1,7 @@
 import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { homePath, myListPath, searchPath } from "../routes";
 
 import HomePage from "../home/HomePage";
 import SearchPage from "../search/SearchPage";
@@ -13,14 +14,14 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Switch>
-          <Route exact path="/">
+          <Route exact path={homePath}>
             <HomePage />
           </Route>
         </Switch>
-        <Route path="/search">
+        <Route path={searchPath}>
           <SearchPage />
         </Route>
-        <Route path="/my-list">
+        <Route path={myListPath}>
           <MyListPage />
         </Route>
       </ThemeProvider>
