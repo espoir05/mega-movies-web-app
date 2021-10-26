@@ -19,3 +19,5 @@ commit
 ```shell
 yarn commit
 ```
+
+## Powered by CRA
