@@ -33,6 +33,6 @@ export default function MovieCard({
 
 MovieCard.propTypes = {
   title: string.isRequired,
-  id: number.isRequired,
+  id: string.isRequired,
   image: string,
 };
