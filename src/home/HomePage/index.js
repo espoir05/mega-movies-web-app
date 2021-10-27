@@ -1,27 +1,25 @@
+import { Alert } from "@material-ui/lab";
 import { Grid } from "@material-ui/core";
-import BaseLayout from "../../ds/BaseLayout";
-import MovieCard from "../../ds/MovieCard";
 import React from "react";
 
-import { v4 as uuid } from "uuid";
-
-const defaultMovies = new Array(20).fill(null).map(() => ({
-  id: uuid(),
-  title: "titanic",
-  image: "https://api.lorem.space/image/movie?w=310&h=220",
-}));
+import BaseLayout from "../../ds/BaseLayout";
+import MovieCard from "../../ds/MovieCard";
+import { useMovies } from "../../hooks";
 
 export default function HomePage() {
-  const [movies, setMovie] = React.useState(defaultMovies);
-
+  const { movies, hasMovies } = useMovies();
   return (
     <BaseLayout>
       <Grid container spacing={2}>
-        {movies.map((movie) => (
-          <Grid item key={movie.id}>
-            <MovieCard {...movie} />
-          </Grid>
-        ))}
+        {hasMovies ? (
+          movies.map((movie) => (
+            <Grid item key={movie.id}>
+              <MovieCard {...movie} />
+            </Grid>
+          ))
+        ) : (
+          <Alert security="info"> aucun movies </Alert>
+        )}
       </Grid>
     </BaseLayout>
   );

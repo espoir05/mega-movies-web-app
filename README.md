@@ -21,3 +21,5 @@ yarn commit
 ```
 
 ## Powered by CRA
+
+[CRA](./docs/CRA.md)
