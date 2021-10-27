@@ -1,12 +1,11 @@
-import { BrowserRouter } from "react-router-dom";
+import { AppBar, Toolbar } from "@material-ui/core";
 import { HomeOutlined } from "@material-ui/icons";
 
-import MenuItem from ".";
-import { AppBar, Toolbar } from "@material-ui/core";
+import MenuItem, { variants } from "./";
 
 export default {
   component: MenuItem,
-  title: "DesignSystem/Molecule.MenuItem",
+  title: "Design System/Molecule/MenuItem",
   decorators: [
     (Story) => (
       <AppBar position="static">
@@ -18,22 +17,16 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <BrowserRouter>
-    <MenuItem to="/">MENU 1</MenuItem>
-  </BrowserRouter>
-);
+export const Default = () => <MenuItem to="/">Menu 1</MenuItem>;
 
 export const WithIcon = () => (
-  <BrowserRouter>
-    <MenuItem startIcon={<HomeOutlined />}>MENU 1</MenuItem>
-  </BrowserRouter>
+  <MenuItem to="/" startIcon={<HomeOutlined />}>
+    Menu 1
+  </MenuItem>
 );
 
 export const WithCurrentVariant = () => (
-  <BrowserRouter>
-    <MenuItem startIcon={<HomeOutlined />} variant="current">
-      MENU 1
-    </MenuItem>
-  </BrowserRouter>
+  <MenuItem to="/" startIcon={<HomeOutlined />} variant={variants.current}>
+    Menu 1
+  </MenuItem>
 );

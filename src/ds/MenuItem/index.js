@@ -1,12 +1,15 @@
-import { Button } from "@material-ui/core";
 import { node, oneOf, string } from "prop-types";
+import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 import useStyles from "./useStyles";
+
 export const variants = {
   default: "default",
   current: "current",
 };
+
+export { default as useVariantLocation } from "./useVariantLocation";
 
 export default function MenuItem({
   children,
@@ -14,7 +17,8 @@ export default function MenuItem({
   to,
   variant = variants.default,
 }) {
-  const classes = useStyles(variant);
+  const classes = useStyles({ variant });
+
   return (
     <Button
       color="inherit"
@@ -28,6 +32,7 @@ export default function MenuItem({
     </Button>
   );
 }
+
 MenuItem.propTypes = {
   children: node,
   startIcon: node,

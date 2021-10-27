@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { variants } from ".";
+
+import { variants } from "./";
 
 export default makeStyles({
   root: {

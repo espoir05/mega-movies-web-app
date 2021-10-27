@@ -1,5 +1,6 @@
-import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter } from "react-router-dom";
+
 import theme from "../src/ds/theme";
 
 export const parameters = {
@@ -13,15 +14,14 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story) => {
+  (Story) => (
     <BrowserRouter>
       <Story />
-    </BrowserRouter>;
-  },
-
-  (Story) => {
+    </BrowserRouter>
+  ),
+  (Story) => (
     <ThemeProvider theme={theme}>
       <Story />
-    </ThemeProvider>;
-  },
+    </ThemeProvider>
+  ),
 ];

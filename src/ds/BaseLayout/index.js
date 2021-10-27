@@ -1,14 +1,13 @@
-import { node } from "prop-types";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { HomeOutlined, SearchOutlined, ListOutlined } from "@material-ui/icons";
-import { homePath, myListPath, searchPath } from "../../routes";
-import { useLocation } from "react-router-dom";
+import { HomeOutlined, ListOutlined, SearchOutlined } from "@material-ui/icons";
+import { node } from "prop-types";
 
-import MenuItem from "../MenuItem";
+import { homePath, myListPath, searchPath } from "../../routes";
+import MenuItem, { useVariantLocation } from "../MenuItem";
 import Separator from "../Separator";
 
 export default function BaseLayout({ children }) {
-  const { pathname } = useLocation();
+  const { variantPath } = useVariantLocation();
 
   return (
     <>
@@ -18,21 +17,21 @@ export default function BaseLayout({ children }) {
           <MenuItem
             startIcon={<HomeOutlined />}
             to={homePath}
-            variant={pathname === homePath ? "current" : "default"}
+            variant={variantPath(homePath)}
           >
-            Acceuil
+            Accueil
           </MenuItem>
           <MenuItem
             startIcon={<SearchOutlined />}
             to={searchPath}
-            variant={pathname === searchPath ? "current" : "default"}
+            variant={variantPath(searchPath)}
           >
             Recherche
           </MenuItem>
           <MenuItem
             startIcon={<ListOutlined />}
             to={myListPath}
-            variant={pathname === searchPath ? "current" : "default"}
+            variant={variantPath(myListPath)}
           >
             Ma liste
           </MenuItem>
